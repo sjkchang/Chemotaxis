@@ -1,22 +1,24 @@
  //declare bacteria variables here
- Bacteria[] bact;
+ Bacteria [] bact;
  int i;
-  //= new Bacteria((int)(Math.random()*600), (int)(Math.random()*600));
 void setup()   
  {     
  	//initialize bacteria variables here
  	size(600,600);
  	background(0);
- 	//noStroke();
- 
- 		bact = new Bacteria[20];
+ 	bact = new Bacteria[400];
+ 		for(int i = 0; i < bact.length; i++)
+ 		{
+ 			bact[i] = new Bacteria((int)(Math.random()*600), (int)(Math.random()*600));
+ 		}
 	 }   
  void draw()   
  { 
+ 	background(0);
  	for(int i = 0; i < bact.length; i++)
 	{
- 	bact[i].show();
- 	bact[i].move();
+ 		bact[i].show();
+ 		bact[i].move();
  	}
  }  
  class Bacteria    
@@ -37,7 +39,6 @@ void setup()
 
  	void show()
  	{
- 		background(0);
  		fill(myColor);
  		ellipse(myX, myY, 10, 10);
  	}
